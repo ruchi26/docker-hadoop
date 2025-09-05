@@ -4,6 +4,7 @@ services:
   namenode:
     image: bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8
     container_name: namenode
+    platform: linux/amd64
     restart: always
     ports:
       - 9870:9870
@@ -18,6 +19,7 @@ services:
   datanode:
     image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
     container_name: datanode
+    platform: linux/amd64
     restart: always
     volumes:
       - hadoop_datanode:/hadoop/dfs/data
@@ -29,15 +31,209 @@ services:
   resourcemanager:
     image: bde2020/hadoop-resourcemanager:2.0.0-hadoop3.2.1-java8
     container_name: resourcemanager
+    platform: linux/amd64
     restart: always
+    ports:
+      - 8088:8088
     environment:
       SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode:9864"
     env_file:
       - ./hadoop.env
 
-  nodemanager1:
+  nodemanager:
     image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.2.1-java8
-    container_name: nodemanager
+    container_name: nodemanager1
+    platform: linux/amd64
+    restart: always
+    environment:
+      SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088"
+    env_file:
+      - ./hadoop.env
+
+  nodemanager2:
+    image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.2.1-java8
+    container_name: nodemanager2
+    platform: linux/amd64
+    restart: always
+    environment:
+      SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088"
+    env_file:
+      - ./hadoop.env
+
+  nodemanager3:
+    image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.2.1-java8
+    container_name: nodemanager3
+    platform: linux/amd64
+    restart: always
+    environment:
+      SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088"
+    env_file:
+      - ./hadoop.env
+
+  nodemanager4:
+    image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.2.1-java8
+    container_name: nodemanager4
+    platform: linux/amd64
+    restart: always
+    environment:
+      SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088"
+    env_file:
+      - ./hadoop.env
+
+  nodemanager5:
+    image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.2.1-java8
+    container_name: nodemanager5
+    platform: linux/amd64
+    restart: always
+    environment:
+      SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088"
+    env_file:
+      - ./hadoop.env
+
+  nodemanager6:
+    image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.2.1-java8
+    container_name: nodemanager6
+    platform: linux/amd64
+    restart: always
+    environment:
+      SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088"
+    env_file:
+      - ./hadoop.env
+
+  nodemanager7:
+    image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.2.1-java8
+    container_name: nodemanager7
+    platform: linux/amd64
+    restart: always
+    environment:
+      SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088"
+    env_file:
+      - ./hadoop.env
+
+  nodemanager8:
+    image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.2.1-java8
+    container_name: nodemanager8
+    platform: linux/amd64
+    restart: always
+    environment:
+      SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088"
+    env_file:
+      - ./hadoop.env
+
+  nodemanager9:
+    image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.2.1-java8
+    container_name: nodemanager9
+    platform: linux/amd64
+    restart: always
+    environment:
+      SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088"
+    env_file:
+      - ./hadoop.env
+
+  nodemanager10:
+    image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.2.1-java8
+    container_name: nodemanager10
+    platform: linux/amd64
+    restart: always
+    environment:
+      SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088"
+    env_file:
+      - ./hadoop.env
+
+  nodemanager11:
+    image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.2.1-java8
+    container_name: nodemanager11
+    platform: linux/amd64
+    restart: always
+    environment:
+      SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088"
+    env_file:
+      - ./hadoop.env
+
+  nodemanager12:
+    image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.2.1-java8
+    container_name: nodemanager12
+    platform: linux/amd64
+    restart: always
+    environment:
+      SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088"
+    env_file:
+      - ./hadoop.env
+
+  nodemanager13:
+    image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.2.1-java8
+    container_name: nodemanager13
+    platform: linux/amd64
+    restart: always
+    environment:
+      SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088"
+    env_file:
+      - ./hadoop.env
+
+  nodemanager14:
+    image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.2.1-java8
+    container_name: nodemanager14
+    platform: linux/amd64
+    restart: always
+    environment:
+      SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088"
+    env_file:
+      - ./hadoop.env
+
+  nodemanager15:
+    image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.2.1-java8
+    container_name: nodemanager15
+    platform: linux/amd64
+    restart: always
+    environment:
+      SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088"
+    env_file:
+      - ./hadoop.env
+
+  nodemanager16:
+    image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.2.1-java8
+    container_name: nodemanager16
+    platform: linux/amd64
+    restart: always
+    environment:
+      SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088"
+    env_file:
+      - ./hadoop.env
+
+  nodemanager17:
+    image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.2.1-java8
+    container_name: nodemanager17
+    platform: linux/amd64
+    restart: always
+    environment:
+      SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088"
+    env_file:
+      - ./hadoop.env
+
+  nodemanager18:
+    image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.2.1-java8
+    container_name: nodemanager18
+    platform: linux/amd64
+    restart: always
+    environment:
+      SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088"
+    env_file:
+      - ./hadoop.env
+
+  nodemanager19:
+    image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.2.1-java8
+    container_name: nodemanager19
+    platform: linux/amd64
+    restart: always
+    environment:
+      SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088"
+    env_file:
+      - ./hadoop.env
+
+  nodemanager20:
+    image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.2.1-java8
+    container_name: nodemanager20
+    platform: linux/amd64
     restart: always
     environment:
       SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088"
@@ -47,6 +243,7 @@ services:
   historyserver:
     image: bde2020/hadoop-historyserver:2.0.0-hadoop3.2.1-java8
     container_name: historyserver
+    platform: linux/amd64
     restart: always
     environment:
       SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088"
